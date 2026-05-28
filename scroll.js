@@ -1,77 +1,54 @@
-// SCROLL SUAVE DOS LINKS
+document.addEventListener('DOMContentLoaded', () => {
 
-const links = document.querySelectorAll('.menu a');
+    // SCROLL SUAVE
 
-links.forEach(link => {
+    const links = document.querySelectorAll('.menu a');
 
-    link.addEventListener('click', function(e){
+    links.forEach(link => {
 
-        e.preventDefault();
+        link.addEventListener('click', function(e){
 
-        const id = this.getAttribute('href');
-        const secao = document.querySelector(id);
+            e.preventDefault();
 
-        secao.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            const id = this.getAttribute('href');
+
+            const secao = document.querySelector(id);
+
+            secao.scrollIntoView({
+                behavior:'smooth'
+            });
+
         });
 
     });
 
-});
+    // BOTÃO TOPO
 
+    const topoBtn = document.getElementById('topoBtn');
 
-// MENU MUDA AO ROLAR
+    window.addEventListener('scroll', () => {
 
-const topo = document.querySelector('.topo');
+        if(window.scrollY > 300){
 
-window.addEventListener('scroll', () => {
+            topoBtn.style.opacity = '1';
+            topoBtn.style.visibility = 'visible';
 
-    if(window.scrollY > 50){
+        } else {
 
-        topo.style.background = '#163828';
-        topo.style.padding = '15px 8%';
-        topo.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+            topoBtn.style.opacity = '0';
+            topoBtn.style.visibility = 'hidden';
 
-    } else {
+        }
 
-        topo.style.background = 'rgba(20, 60, 40, 0.9)';
-        topo.style.padding = '20px 8%';
-        topo.style.boxShadow = 'none';
+    });
 
-    }
+    topoBtn.addEventListener('click', () => {
 
-});
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        });
 
-
-// BOTÃO VOLTAR AO TOPO
-
-const botaoTopo = document.getElementById('botao-topo');
-
-window.addEventListener('scroll', () => {
-
-    if(window.scrollY > 300){
-
-        botaoTopo.style.opacity = '1';
-        botaoTopo.style.visibility = 'visible';
-
-    } else {
-
-        botaoTopo.style.opacity = '0';
-        botaoTopo.style.visibility = 'hidden';
-
-    }
-
-});
-
-
-// VOLTAR AO TOPO
-
-botaoTopo.addEventListener('click', () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
     });
 
 });

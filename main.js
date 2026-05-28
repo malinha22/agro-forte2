@@ -1,47 +1,23 @@
-// ANIMAÇÃO DOS CARDS AO PASSAR O MOUSE
+document.addEventListener('DOMContentLoaded', () => {
 
-const cards = document.querySelectorAll('.card');
+    // EFEITO NOS CARDS
 
-cards.forEach(card => {
+    const cards = document.querySelectorAll('.card');
 
-    card.addEventListener('mouseenter', () => {
+    cards.forEach(card => {
 
-        card.style.transform = 'scale(1.05)';
-        card.style.transition = '0.3s';
+        card.addEventListener('mouseenter', () => {
 
-    });
+            card.style.transform = 'translateY(-15px)';
 
-    card.addEventListener('mouseleave', () => {
+        });
 
-        card.style.transform = 'scale(1)';
+        card.addEventListener('mouseleave', () => {
 
-    });
+            card.style.transform = 'translateY(0px)';
 
-});
-
-
-// ANIMAÇÃO NAS IMAGENS DAS PLANTAS
-
-const imagens = document.querySelectorAll('.planta-card img');
-
-imagens.forEach(img => {
-
-    img.addEventListener('mouseenter', () => {
-
-        img.style.transform = 'scale(1.1)';
-        img.style.transition = '0.4s';
-
-    });
-
-    img.addEventListener('mouseleave', () => {
-
-        img.style.transform = 'scale(1)';
+        });
 
     });
 
 });
-
-
-// MENSAGEM NO CONSOLE
-
-console.log("Projeto EcoAllelo carregado com sucesso!");
